@@ -5,8 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "node --test test.js"
+    "start": "node src/index.js",
+    "test": "node --test test/test.js",
+    "build": "ncc build src/index.js -o dist --minify"
   },
   "keywords": [
     "github",
@@ -17,5 +18,8 @@
   "dependencies": {
     "@actions/core": "^3.0.0",
     "@actions/github": "^9.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.1"
   }
 }
