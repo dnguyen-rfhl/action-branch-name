@@ -1,9 +1,9 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
+import * as core from '@actions/core';
+import * as github from '@actions/github';
 
 const validEvent = ['push', 'pull_request'];
 
-function getBranchName(eventName, payload) {
+export function getBranchName(eventName, payload) {
     let branchName;
     switch (eventName) {
         case 'push':
@@ -70,4 +70,6 @@ async function run() {
     }
 }
 
-run();
+if (process.env.GITHUB_ACTIONS) {
+    run();
+}
